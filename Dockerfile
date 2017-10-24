@@ -5,7 +5,8 @@ LABEL Justin Tien <thitbbeb@gmail.com>
 ENV RCLONE_VERSION=current
 ENV ARCH=amd64
 
-RUN apk -U add ca-certificates fuse \
+RUN apk add --update openssl \
+    && apk -U add ca-certificates fuse \
     && rm -rf /var/cache/apk/* \
     && cd /tmp \
     && wget -q http://downloads.rclone.org/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip \
