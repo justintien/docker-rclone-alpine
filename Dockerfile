@@ -2,7 +2,7 @@ FROM alpine
 
 LABEL Justin Tien <thitbbeb@gmail.com>
 
-ENV RCLONE_VERSION=current
+ENV RC_VERSION=current
 ENV ARCH=amd64
 
 RUN apk update \
@@ -11,8 +11,8 @@ RUN apk update \
         ca-certificates \
         fuse \
     && cd /tmp \
-    && wget -q http://downloads.rclone.org/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip \
-    && unzip /tmp/rclone-${RCLONE_VERSION}-linux-${ARCH}.zip \
+    && wget -q http://downloads.rclone.org/rclone-${RC_VERSION}-linux-${ARCH}.zip \
+    && unzip /tmp/rclone-${RC_VERSION}-linux-${ARCH}.zip \
     && mv /tmp/rclone-*-linux-${ARCH}/rclone /usr/bin \
     && rm -r /tmp/rclone* \
     && addgroup rclone \
